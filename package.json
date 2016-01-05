@@ -1,8 +1,15 @@
 {
   "name": "babel-plugin-transform-ensure-ignore",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "require.ensure ignore",
   "main": "lib/index.js",
+  "files": [
+    "src/**",
+    "lib/**"
+  ],
+  "keywords": [
+    "babel-plugin"
+  ],
   "config": {
     "MOCHA_OPTS": "-R dot --compilers js:babel-core/register src/__tests__/*.spec.js"
   },
@@ -10,14 +17,11 @@
     "coverage": "babel-node ./node_modules/.bin/istanbul cover _mocha -- $npm_package_config_MOCHA_OPTS",
     "ut": "mocha $npm_package_config_MOCHA_OPTS",
     "test": "npm run lint && npm run coverage",
-    "build": "babel src/ --out-dir lib/",
+    "build": "rm -rf lib && babel src/ --ignore __*__ --out-dir lib/",
     "release": "npm run build && npm publish",
     "lint": "eslint src/"
   },
   "license": "MIT",
-  "keywords": [
-    "babel-plugin"
-  ],
   "devDependencies": {
     "babel-cli": "^6.3.17",
     "babel-core": "^6.3.17",
