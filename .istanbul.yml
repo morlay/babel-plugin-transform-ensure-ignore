@@ -1,0 +1,8 @@
+verbose: false
+instrumentation:
+    root: .
+    extensions:
+        - .js
+        - .jsx
+    excludes:
+        - "**/__tests__/**"
